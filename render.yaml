@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: chatbase-openai-vector-store-bridge
+    runtime: node
+    plan: starter
+    autoDeploy: true
+    buildCommand: ""
+    startCommand: node server.js
+    healthCheckPath: /health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_VECTOR_STORE_ID
+        sync: false
+      - key: PUBLIC_FILE_BASE_URL
+        sync: false
+      - key: SHOPIFY_STORE_DOMAIN
+        sync: false
+      - key: SHOPIFY_ADMIN_ACCESS_TOKEN
+        sync: false
+      - key: SHOPIFY_API_VERSION
+        value: "2026-04"
+      - key: MAX_RESULTS
+        value: "3"
+      - key: MAX_CONTEXT_CHARS
+        value: "4000"
+      - key: MAX_SNIPPET_CHARS
+        value: "700"
